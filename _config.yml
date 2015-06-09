@@ -4,7 +4,7 @@
 
 # Site
 title: KiwenLau
-subtitle: Let is Simple, Stupid
+subtitle: Let it Simple, Stupid
 description:
 author: KiwenLau
 language: zh-CN
@@ -69,5 +69,6 @@ theme: light
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@gitcafe.com:kiwenlau/kiwenlau.git
-  branch: gitcafe-pages
+  repo: 
+    gitcafe: git@gitcafe.com:kiwenlau/kiwenlau.git,gitcafe-pages
+
