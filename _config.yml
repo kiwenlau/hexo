@@ -72,3 +72,19 @@ deploy:
   repo: 
     gitcafe: git@gitcafe.com:kiwenlau/kiwenlau.git,gitcafe-pages
 
+
+
+feed:
+    type: atom
+    path: atom.xml
+    limit: 10
+
+
+sitemap:
+    path: sitemap.xml
+
+baidusitemap:
+    path: baidusitemap.xml
+
+
+
