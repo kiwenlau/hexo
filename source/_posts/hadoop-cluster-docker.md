@@ -156,7 +156,7 @@ GitHub: [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau)
 
 下图显示了项目的Docker镜像结构：
 
-![Image Architecture](/image/image architecture.jpg "Image Architecture")
+![](/image/image architecture.jpg "Image Architecture")
 
 ##三. 3节点Hadoop集群搭建步骤
 
@@ -383,3 +383,8 @@ Hello	2
 - 参考第三部分5~7：测试容器，开启Hadoop，运行wordcount
 - 请注意，若节点增加，请务必先测试容器，然后再开启Hadoop, 因为serf可能还没有发现所有节点，而dnsmasq的DNS服务器表示还没有配置好服务
 - 测试等待时间取决于机器性能....
+
+***
+**版权声明**
+转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：[http://kiwenlau/2015/06/08/hadoop-cluster-docker/](http://kiwenlau/2015/06/08/hadoop-cluster-docker/)
+***
