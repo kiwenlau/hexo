@@ -60,7 +60,7 @@ Last login: Sat Jun 20 15:39:25 2015 from 192.168.59.3
 
 ***
 **版权声明**
-转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：[http://kiwenlau/2015/06/20/ssh-copy-id-error/](http://kiwenlau/2015/06/20/ssh-copy-id-error/)
+转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：[http://kiwenlau.com/2015/06/20/ssh-copy-id-error/](http://kiwenlau.com/2015/06/20/ssh-copy-id-error/)
 ***
 
 

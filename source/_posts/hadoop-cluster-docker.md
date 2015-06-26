@@ -386,5 +386,5 @@ Hello	2
 
 ***
 **版权声明**
-转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：[http://kiwenlau/2015/06/08/hadoop-cluster-docker/](http://kiwenlau/2015/06/08/hadoop-cluster-docker/)
+转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：[http://kiwenlau.com/2015/06/08/hadoop-cluster-docker/](http://kiwenlau.com/2015/06/08/hadoop-cluster-docker/)
 ***
