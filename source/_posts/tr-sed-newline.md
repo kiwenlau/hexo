@@ -7,7 +7,7 @@ tags: [Linux命令, tr, sed]
 ![](/image/150623/tr-sed-newline.png)
 
 **输入文本(country.txt)**
-```
+```plain
 China
 America
 France
@@ -25,7 +25,7 @@ cat country.txt | tr "\n" " "
 ```
 
 **两个命令输出一致，但是sed命令的输出结尾有换行符，而tr命令的输出结尾没有换行符**
-```
+```plain
 China America France German
 ```
 

@@ -10,7 +10,7 @@ tags: [Linux命令,grep]
 
 
 **输入文本(country.txt)**
-```
+```plain
 Austria England
 Austria Canada
 China England
@@ -23,7 +23,7 @@ cat country.txt | grep Austria | grep England
 ```
 
 *输出*
-```
+```plain
 Austria England
 ```
 
@@ -34,7 +34,7 @@ cat country.txt | grep -v Austria | grep -v England
 ```
 
 *输出*
-```
+```plain
 China Canada
 ```
 
@@ -44,7 +44,7 @@ cat country.txt | grep -E 'Austria|England'
 ```
 
 *输出*
-```
+```plain
 Austria England
 Austria Canada
 China England
@@ -56,7 +56,7 @@ cat country.txt | grep Austria | grep -v England
 ```
 
 *输出*
-```
+```plain
 Austria Canada
 ```
 

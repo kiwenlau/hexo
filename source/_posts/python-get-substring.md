@@ -27,7 +27,7 @@ print "日: " + day
 python example.py
 ```
 **程序输出:**
-```
+```plain
 日期: 2015-06-21
 年: 2015
 月: 06

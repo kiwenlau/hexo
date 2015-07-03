@@ -4,7 +4,7 @@
 
 # Site
 title: KiwenLau
-subtitle: Let it Simple, Stupid
+subtitle: Let itf Simple, Stupid
 description:
 author: KiwenLau
 language: zh-CN
@@ -40,7 +40,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: true
+  auto_detect: false
   tab_replace:
 
 # Category & Tag

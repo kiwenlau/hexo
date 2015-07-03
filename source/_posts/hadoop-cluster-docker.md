@@ -7,7 +7,7 @@ GitHub: [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau)
 
 可以直接进入第三部分，快速在本机搭建一个3个节点的Hadoop集群
 
-```
+```plain
 一. 项目简介
 二. 镜像简介
 三. 3节点Hadoop集群搭建步骤
@@ -242,7 +242,7 @@ cd hadoop-cluster-docker
 
 *运行结果*
 
-```
+```plain
 start master container...
 start slave1 container...
 start slave2 container...
@@ -260,7 +260,7 @@ ls
 
 *运行结果*
 
-```
+```plain
 hdfs  run-wordcount.sh	serf_log  start-hadoop.sh  start-ssh-serf.sh
 ```
 
@@ -277,7 +277,7 @@ serf members
 
 *运行结果*
 
-```
+```plain
 master.kiwenlau.com  172.17.0.65:7946  alive
 slave1.kiwenlau.com  172.17.0.66:7946  alive
 slave2.kiwenlau.com  172.17.0.67:7946  alive
@@ -293,7 +293,7 @@ ssh slave2.kiwenlau.com
 
 *运行结果*
 
-```
+```plain
 Warning: Permanently added 'slave2.kiwenlau.com,172.17.0.67' (ECDSA) to the list of known hosts.
 Welcome to Ubuntu 15.04 (GNU/Linux 3.13.0-53-generic x86_64)
 * Documentation:  https://help.ubuntu.com/
@@ -313,7 +313,7 @@ exit
 
 *运行结果*
 
-```
+```plain
 logout
 Connection to slave2.kiwenlau.com closed.
 ```
@@ -338,7 +338,7 @@ Connection to slave2.kiwenlau.com closed.
 ```
 
 *运行结果*
-```
+```plain
 input file1.txt:
 Hello Hadoop
 input file2.txt:
@@ -386,5 +386,6 @@ Hello	2
 
 ***
 **版权声明**
-转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：[http://kiwenlau.com/2015/06/08/hadoop-cluster-docker/](http://kiwenlau.com/2015/06/08/hadoop-cluster-docker/)
+转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：
+[http://kiwenlau.com/2015/06/08/hadoop-cluster-docker/](http://kiwenlau.com/2015/06/08/hadoop-cluster-docker/)
 ***
