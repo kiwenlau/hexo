@@ -277,5 +277,5 @@ Status: Downloaded newer image for 192.168.59.10:5000/busybox:test
 
 转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：
 
-[http://kiwenlau.com/2015/11/05/151105-install-docker-registry-python-Ubuntu/](http://kiwenlau.com/2015/11/05/151105-install-docker-registry-python-Ubuntu/)
+[http://kiwenlau.com/2015/11/05/151105-install-docker-registry-python-ubuntu/](http://kiwenlau.com/2015/11/05/151105-install-docker-registry-python-ubuntu/)
 ***
