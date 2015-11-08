@@ -6,7 +6,7 @@ tags: [Linux]
 
 ---
 
-##1.	关于Ubuntu中的root用户
+##1.	关于Ubuntu的root用户
 
 ubuntu默认是不开启root用户的。当执行管理权限的命令时，需要在命令前添加sudo，然后输入密码才能执行命令。使用passwd命令可以为root用户设置密码，使用su命令可以切换到root用户。
 
