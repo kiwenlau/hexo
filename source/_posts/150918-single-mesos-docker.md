@@ -1,4 +1,4 @@
-title: 基于Docker快速搭建单节点Mesos/Marathon集群
+title: 基于Docker搭建单机版Mesos/Marathon
 
 date: 2015-09-18 12:00:00
 

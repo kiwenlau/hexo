@@ -1,4 +1,4 @@
-title: 基于Docker快速搭建单机版Kuberntes
+title: 基于Docker搭建单机版Kuberntes
 
 date: 2015-11-28 09:00:00
 
