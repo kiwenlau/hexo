@@ -1,6 +1,6 @@
 title: 如何运行多进程Docker容器？
 
-date: 2015-11-28 09:00:00
+date: 2016-01-09 21:00:00
 
 tags: [Docker, Kubernetes]
 
@@ -122,7 +122,7 @@ stderr_logfile=/var/log/docker.stderr.log
 CMD ["supervisord", "-c", "/etc/supervisor/conf.d/kubernetes.conf"]
 ```
 
-此时, supervisord是Docker容器中的1号进程，也需要保持处于运行状态。nodaemon设为true时，表示supervisor保持前台运行，则可实现这一点。
+此时, supervisord是Docker容器中的1号进程，也需要始终保持运行状态。nodaemon设为true时，表示supervisor保持前台运行而非在后台运行。若supervisor在后台运行，则Docker容器也会在执行supervisord命令后立即Exited.
 
 ```
 [supervisord]
@@ -133,9 +133,9 @@ nodaemon=true
 
 ##总结
 
-使用Shell脚本运行多进程Docker容器，优势是大家比较熟悉。由于需要保持Docker容器的1号进程始终运行，这一点比较易错。若要实现进程自动重启的话，还是比较麻烦的。
+使用Shell脚本运行多进程Docker容器，优势是大家比较熟悉。由于需要保持Docker容器的1号进程始终运行，这一点比较容易出错。若要实现进程意外退出后自动重启的话，使用shell脚本比较麻烦。
 
-使用supervisor运行多进程Docker容器，非常方便。另外，保持1号进程运行和进程退出后自动重启两点，实现起来都很简单。
+使用supervisor运行多进程Docker容器，非常方便。另外，保持1号进程保持运行，以及进程意外退出后自动重启，实现起来都很简单。
 
 
 ##使用多个Docker容器运行Kubernetes
