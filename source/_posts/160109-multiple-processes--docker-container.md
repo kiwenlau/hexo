@@ -6,6 +6,15 @@ tags: [Docker, Kubernetes]
 
 ---
 
+**摘要:** 本文介绍了两种在Docker容器中运行多个进程的方法: **shell脚本**和**supervisor**。
+
+**GitHub地址:**
+- [kiwenlau/kubernetes-shell](https://github.com/kiwenlau/kubernetes-shell)
+- [kiwenlau/kubernetes-supervisor](https://github.com/kiwenlau/kubernetes-supervisor)
+
+<!-- more -->
+
+
 ##简介
 
 一般来说，Docker容器比较适合运行单个进程。例如，项目"**使用多个Docker容器运行Kubernetes**"，Kubernetes的各个组件分别运行在各个容器之中，每个容器只运行单个进程。

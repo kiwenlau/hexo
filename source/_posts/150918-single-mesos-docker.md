@@ -6,8 +6,12 @@ tags: [Docker,Mesos,Marathon]
 
 ---
 
-- GitHub地址：[kiwenlau/single-mesos-docker](https://github.com/kiwenlau/single-mesos-docker)
-- 博客地址：[基于Docker快速搭建单节点Mesos/Marathon集群](http://kiwenlau.com/2015/09/18/150918-single-mesos-docker/)
+**摘要:** 本文介绍了基于Docker搭建单机版Mesos/Marathon的方法，Mesos/Marathon的所有组件均运行于单个容器中。
+
+**GitHub地址:**
+- [kiwenlau/single-mesos-docker](https://github.com/kiwenlau/single-mesos-docker)
+
+<!-- more -->
 
 ##一. 简介
 

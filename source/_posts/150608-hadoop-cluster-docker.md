@@ -6,7 +6,12 @@ tags: [Hadoop, Docker]
 
 ---
 
-GitHub: [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau)
+**摘要:** 本文介绍了基于Docker在单机上搭建多节点Hadopp集群方法，Hadoop的Master和Slave分别运行在不同容器中。
+
+**GitHub地址:**
+- [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau)
+
+<!-- more -->
 
 可以直接进入第三部分，快速在本机搭建一个3个节点的Hadoop集群
 

@@ -6,8 +6,12 @@ tags: [Docker, Kubernetes]
 
 ---
 
-**GitHub地址:** [kiwenlau/single-kubernetes-docker](https://github.com/kiwenlau/single-kubernetes-docker)
+**摘要:** 本文介绍了基于Docker搭建单机版Kuberntes的方法，Kubernetes的所有组件均运行于单个容器中。
 
+**GitHub地址:**
+- [kiwenlau/single-kubernetes-docker](https://github.com/kiwenlau/single-kubernetes-docker)
+
+<!-- more -->
 
 ##1. Kubernetes简介
 
