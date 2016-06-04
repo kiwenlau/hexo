@@ -6,7 +6,7 @@ tags: [Docker, Hadoop]
 
 ---
 
-**摘要:** 将编译Hadoop所需要的依赖软件安装到Docker镜像中，然后在Docker容器中编译Hadoop，可以有效提高编译效率，同时避免污染主机。
+**摘要:** 将编译Hadoop所需要的依赖软件安装到Docker镜像中，然后在Docker容器中编译Hadoop，可以有效提高编译效率，同时避免污染主机。编译其他软件时，也可以参考这篇博客的方法。
 
 **GitHub地址:**
 - [kiwenlau/compile-hadoop](https://github.com/kiwenlau/compile-hadoop)
@@ -15,15 +15,9 @@ tags: [Docker, Hadoop]
 
 ![](/image/160605/hadoop-docker.png)
 
-Hadoop官网提供的二进制包是在32位系统上编译的，在64系统上运行会出错：
+在前一篇博客中，我介绍了[64位Ubuntu中编译Hadoop的步骤](http://kiwenlau.com/2016/05/29/160529-compile-hadoop-ubuntu/)。这篇博客将介绍基于Docker编译Hadoop的方法。
 
-```
-WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-```
-
-这时需要自行编译Hadoop源码，在前一篇博客中，我介绍了[64位Ubuntu中编译Hadoop的步骤](http://kiwenlau.com/2016/05/29/160529-compile-hadoop-ubuntu/)。
-
-以下为编译步骤:
+###一. 编译步骤
 
 **1. 下载Docker镜像**
 
@@ -71,33 +65,32 @@ comile hadoop 2.7.2 success!
 编译好的二进制文件包位于
 
 ```
-hadoop-2.3.0-src/hadoop-dist/target/hadoop-2.3.0.tar.gz
+hadoop-2.7.2-src/hadoop-dist/target/hadoop-2.7.2.tar.gz
 ```
 
 编译其他版本的Hadoop的步骤一致，仅需改变VERSION的值。
 
-也可以直接下载我编译好的Hadoop:
-
-- [百度网盘](https://pan.baidu.com/s/1hrGLqlA)
-- [GitHub](https://github.com/kiwenlau/compile-hadoop/releases)
-
-Linux终端用户可以使用wget命令直接下载GitHub上的Hadoop二进制包:
+可以使用wget命令直接下载GitHub上的Hadoop二进制包:
 
 ```
-wget https://github.com/kiwenlau/compile-hadoop/releases/download/2.3.0/hadoop-2.3.0.tar.gz
-wget https://github.com/kiwenlau/compile-hadoop/releases/download/2.4.0/hadoop-2.4.0.tar.gz
-wget https://github.com/kiwenlau/compile-hadoop/releases/download/2.5.0/hadoop-2.5.0.tar.gz
-wget https://github.com/kiwenlau/compile-hadoop/releases/download/2.6.0/hadoop-2.6.0.tar.gz
-wget https://github.com/kiwenlau/compile-hadoop/releases/download/2.7.0/hadoop-2.7.0.tar.gz
-wget https://github.com/kiwenlau/compile-hadoop/releases/download/2.7.2/hadoop-2.7.2.tar.gz
+wget https://github.com/kiwenlau/compile-hadoop/releases/download/$VERSION/hadoop-VERSION.tar.gz
 ```
 
-另外, 使用自行编译的Hadoop二进制包安装Hadoop时需要删除.bashrc文件与hadoop-env.sh文件中下面两行（默认不会有这两行，但是尝试解决报错时可能改写了）
+###二. 方法总结
 
-```
-export HADOOP_COMMON_LIB_NATIVE_DIR="~/hadoop/lib/"
-export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=~/hadoop/lib/"
-```
+编译其他软件时，也可以参考本文介绍的方法，具体细节可以参考源码[kiwenlau/compile-hadoop](https://github.com/kiwenlau/compile-hadoop)
+
+**1. 构建编译所需的Docker镜像**
+
+编译软件往往需要安装很多依赖，而编译不同的软件有时需要不同版本的依赖，如果直接在主机上安装这些依赖会污染主机，而且也不易重复。
+
+**2. 下载软件源码**
+
+源码不放在Docker镜像里面，可以方便编译不同版本的软件，也可以提高构建Docker镜像的效率。
+
+**3. 运行Docker容器编译软件**
+
+软件源码以数据卷(volume)的形式挂载的容器内，编译所得的可执行文件也将位于数据卷内。
 
 ***
 **版权声明**
