@@ -6,7 +6,7 @@ tags: [Docker, Hadoop]
 
 ---
 
-**摘要:** 将编译Hadoop所需要的依赖软件安装到Docker镜像中，然后在Docker容器中编译Hadoop，可以有效提高编译效率，同时避免污染主机。编译其他软件时，也可以参考这篇博客的方法。
+**摘要:** 将编译Hadoop所需要的依赖软件安装到Docker镜像中，然后在Docker容器中编译Hadoop，可以提高编译效率，同时避免污染主机。编译其他软件时，也可以参考这篇博客的方法。
 
 **GitHub地址:**
 - [kiwenlau/compile-hadoop](https://github.com/kiwenlau/compile-hadoop)
