@@ -70,7 +70,7 @@ root@hadoop-master:~#
 ```
 
 - 启动了3个容器，1个master, 2个slave
-- 启动容器后就进入了/root目录
+- 运行后就进入了hadoop-master容器的/root目录
 
 ###5. 启动hadoop
 
@@ -128,6 +128,10 @@ Hadoop网页管理地址:
 
 - 参考第二部分5~6：启动Hadoop，并运行wordcount。
 
+##参考
+
+1. [基于Docker搭建多节点Hadoop集群](http://kiwenlau.com/2015/06/08/150608-hadoop-cluster-docker/)
+2. [How to Install Hadoop on Ubuntu 13.10](https://www.digitalocean.com/community/tutorials/how-to-install-hadoop-on-ubuntu-13-10)
 
 ***
 **版权声明**
