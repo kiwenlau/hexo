@@ -55,7 +55,8 @@ Vagrant虚拟机的默认配置:
 - 内存：512MB
 - CPU: 1
 
-默认设置并不一定满足开发需求，下一小节将介绍如何进行定义配置。
+默认配置并不一定满足开发需求，下一小节将介绍如何进行自定义配置。
+
 
 ##二. 自定义配置
 
@@ -172,12 +173,24 @@ Vagrant中有下面一段内容：
   SHELL
 ```
 
-其实就是嵌入了一段Shell脚本进行软件的安装和配置，这里我安装了[Docker](https://www.docker.com/)，当然也可以安装所需要的软件。修改此段内容之后，重新创建虚拟机需要使用**--provision**选项。
+其实就是嵌入了一段Shell脚本进行软件的安装和配置，这里我安装了[Docker](https://www.docker.com/)，当然也可以安装其他所需要的软件。修改此段内容之后，重新创建虚拟机需要使用**--provision**选项。
 
 ```
 vagrant halt
 vagrant up --provider virtualbox --provision
 ```
+
+其实，Vagrant支持创建[Docker Provision](https://www.vagrantup.com/docs/provisioning/docker.html)，可以用于创建Docker主机，功能很多，但是用起来不如使用Shell脚本灵活。
+
+##三. Vagrant与Docker比较
+
+[Vagrant](https://www.vagrantup.com/)与[Docker](https://www.docker.com/)都可以用于快速创建开发环境，但是，Vagrant是用于创建虚拟机的，而Docker是用于创建容器的，所以两者的功能并不相同。实际工作中，我两个都用，Vagrant仅用于创建虚拟机作为容器运行环境，而Docker用户开发和运行实际应用。这样实现了开发环境两层隔离，MacBook不需要安装多于的软件，Vagrant所创建的虚拟机也仅需要安装Docker，这样更加方便和安全。
+
+Vagrant是基于Vagrantfile创建虚拟机，而Docker是基于Dockerfile创建容器镜像。两者都是将应用的运行环境代码化，所以非常灵活，易于重复，也可以作版本控制。但是，Vagrantfile的语法其实非常简陋，远没有Dockerfile灵活。因此，Vagrant仅适合于创建开发环境，或者作为容器运行的环境，并不适合打包应用。
+
+Vagrant的功能与[Docker Machine](https://docs.docker.com/machine/)功能一致，都是用于创建虚拟机。但是，Docker Machine是专用于创建Docker主机的，而Vagrant可以用于创建不同的开发环境。理论上Docker用户使用Docker Machine会更方便，但是我并没有选择Docker Machine，因为感觉并没有实际需求。Docker Machine所创建的本地虚拟机默认基于Docker专用的Linux发行版[boot2docker](https://github.com/boot2docker/boot2docker)，云端虚拟机默认基于ubuntu，对其他Linux发行版的支持还处于实验阶段。而Vagrant稳定支持更多Linux发行版，所以可以满足更多需求。Vagrant可以通过Vagrantfile进行自定义配置，而Docker Machine并没有对应功能，因此Vagrant用于创建虚拟机更加灵活。
+
+<br /> 
 
 ***
 **版权声明**
