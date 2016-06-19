@@ -13,7 +13,7 @@ tags: [Vagrant]
 - 作者: [KiwenLau](http://kiwenlau.com/)
 - 日期: [2016-06-18](http://kiwenlau.com/2016/06/18/160618-virtual-machine/)
 
-本文是基于MacBook上的操作完成的，Windows上的操作大部分一致，可能会有一些小问题。
+本文所有操作是在MacBook上进行的，Windows上的操作大部分一致，但是可能会有一些小问题。
 
 ![](/image/160619/vagrant-vm.png)
 
@@ -34,12 +34,12 @@ vagrant up --provider virtualbox
 vagrant ssh
 ```
 
-- **vagrant box add:** 下载创建虚拟机所需要的**box**
+- **vagrant box add:** 下载创建虚拟机所依赖的**box**
 - **vagrant init:** 生成创建虚拟机的所依赖的**Vagrantfile**
 - **vagrant up:** 创建虚拟机
 - **vagrant ssh:** SSH登陆虚拟机
 
-不妨查看一下Vagrant自动生成**Vagrantfile**, 我删掉所有注释：
+不妨查看一下Vagrant自动生成的**Vagrantfile**, 我删除了所有注释：
 
 ```
 Vagrant.configure(2) do |config|
@@ -55,18 +55,22 @@ Vagrant虚拟机的默认配置:
 - 内存：512MB
 - CPU: 1
 
-默认设置并不一定满足开发需求，下文将介绍如何进行定义配置。
+默认设置并不一定满足开发需求，下一小节将介绍如何进行定义配置。
 
 ##二. 自定义配置
 
 **1. 修改Vagrantfile**
+
+```
+vim Vagrantfile
+```
 
 可以通过注释理解每个自定义配置的含义。
 
 ```
 Vagrant.configure(2) do |config|
 
-  # 定义虚拟机的Box
+  # 设置虚拟机的Box
   config.vm.box = "ubuntu/trusty64"
   
   # 设置虚拟机的主机名
@@ -81,13 +85,13 @@ Vagrant.configure(2) do |config|
   # VirtaulBox相关配置
   config.vm.provider "virtualbox" do |v|
 
-      # 设置虚拟机名称
+      # 设置虚拟机的名称
       v.name = "ubuntu"
 
-      # 设置虚拟机内存大小
+      # 设置虚拟机的内存大小
       v.memory = 2048
 
-      # 设置虚拟机CPU个数
+      # 设置虚拟机的CPU个数
       v.cpus = 1
   end
   
@@ -119,6 +123,7 @@ mkdir ~/Desktop/share
 **3. 创建虚拟机**
 
 ```
+vagrant destroy
 vagrant up --provider virtualbox
 ```
 
@@ -141,17 +146,38 @@ cat $HOME/.ssh/id_rsa.pub | ssh vagrant@127.0.0.1 -p 2222 'cat >> $HOME/.ssh/aut
 其中，2222是主机SSH登陆虚拟机的转发端口，可以通过以下命令查看:
 
 ```
-ssh-config | grep Port
+vagrant ssh-config | grep Port
   Port 2222
 ```
 
 此时SSH登陆虚拟机则不再需要输入密码。
 
-**5. 关于**
+**5. 关于Provision**
 
-##参考
+Vagrant中有下面一段内容：
 
-1. [基于Docker搭建多节点Hadoop集群](http://kiwenlau.com/2015/06/08/150608-hadoop-cluster-docker/)
+```
+# 使用shell脚本进行软件安装和配置
+  config.vm.provision "shell", inline: <<-SHELL
+
+     # 安装Docker 1.11.0
+     apt-get update
+     apt-get install apt-transport-https ca-certificates
+     apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+     echo deb https://apt.dockerproject.org/repo ubuntu-trusty main > /etc/apt/sources.list.d/docker.list
+     apt-get update;
+     apt-get install -y -q docker-engine=1.11.0-0~trusty
+     usermod -aG docker vagrant
+
+  SHELL
+```
+
+其实就是嵌入了一段Shell脚本进行软件的安装和配置，这里我安装了[Docker](https://www.docker.com/)，当然也可以安装所需要的软件。修改此段内容之后，重新创建虚拟机需要使用**--provision**选项。
+
+```
+vagrant halt
+vagrant up --provider virtualbox --provision
+```
 
 ***
 **版权声明**
