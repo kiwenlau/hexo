@@ -13,6 +13,9 @@ tags: [Docker, Hadoop]
 
 <!-- more -->
 
+- 作者: [KiwenLau](http://kiwenlau.com/)
+- 日期: [2016-06-05](http://kiwenlau.com/2016/06/05/160605-compile-hadoop-docker/)
+
 ![](/image/160605/hadoop-docker.png)
 
 在前一篇博客中，我介绍了[64位Ubuntu中编译Hadoop的步骤](http://kiwenlau.com/2016/05/29/160529-compile-hadoop-ubuntu/)。这篇博客将介绍基于Docker编译Hadoop的方法。
@@ -91,6 +94,8 @@ wget https://github.com/kiwenlau/compile-hadoop/releases/download/$VERSION/hadoo
 **3. 运行Docker容器编译软件**
 
 软件源码以数据卷(volume)的形式挂载的容器内，编译所得的可执行文件也将位于数据卷内。
+
+<br /> 
 
 ***
 **版权声明**

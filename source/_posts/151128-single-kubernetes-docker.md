@@ -13,6 +13,9 @@ tags: [Docker, Kubernetes]
 
 <!-- more -->
 
+- 作者: [KiwenLau](http://kiwenlau.com/)
+- 日期: [2015-11-28](http://kiwenlau.com/2015/11/28/151128-single-kubernetes-docker/)
+
 ##1. Kubernetes简介
 
 2006年，Google工程师Rohit Seth发起了Cgroups内核项目。Cgroups是容器实现CPU，内存等资源隔离的基础，由此可见Google其实很早就开始涉足容器技术。而事实上，Google内部使用容器技术已经长达十年，目前谷歌所有业务包括搜索，Gmail，MapReduce等均运行在容器之中。Google内部使用的集群管理系统--Borg，堪称其容器技术的瑞士军刀。
@@ -140,6 +143,7 @@ Commercial support is available at
 4. [Kubernetes 架构浅析](http://weibo.com/p/1001603912843031387951?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 5. [An Introduction to Kubernetes](https://www.digitalocean.com/community/tutorials/an-introduction-to-kubernetes)
 
+<br />
 
 ***
 **版权声明**

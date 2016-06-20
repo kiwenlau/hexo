@@ -12,6 +12,9 @@ Hadoop二进制包下载地址：[百度网盘](https://pan.baidu.com/s/1hrGLqlA
 
 <!-- more -->
 
+- 作者: [KiwenLau](http://kiwenlau.com/)
+- 日期: [2016-05-29](http://kiwenlau.com/2016/05/29/160529-compile-hadoop-ubuntu/)
+
 ![](/image/160529/ubuntu-hadoop.png)
 
 Hadoop官网提供的二进制包是在32位系统上编译的，在64系统上运行会出错：
@@ -91,6 +94,8 @@ wget https://github.com/kiwenlau/compile-hadoop/releases/download/2.7.2/hadoop-2
 export HADOOP_COMMON_LIB_NATIVE_DIR="~/hadoop/lib/"
 export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=~/hadoop/lib/"
 ```
+
+<br /> 
 
 ***
 **版权声明**

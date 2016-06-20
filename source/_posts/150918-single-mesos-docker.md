@@ -13,6 +13,9 @@ tags: [Docker,Mesos,Marathon]
 
 <!-- more -->
 
+- 作者: [KiwenLau](http://kiwenlau.com/)
+- 日期: [2015-09-18](http://kiwenlau.com/2015/09/18/150918-single-mesos-docker/)
+
 ##一. 简介
 
 [Mesos](http://mesos.apache.org)是集群资源管理系统，[Marathon](http://mesosphere.github.io/marathon)是运行在Mesos之上的集群计算架构。将Mesos和Marathon打包到[Docker](https://www.docker.com/)镜像中，开发者便可以在本机上快速搭建Mesos/Marathon集群，进行学习和测试。
@@ -164,6 +167,8 @@ sudo docker run -p 5050:5050 -p 8080:8080 --name mesos -it -w /root index.alauda
 6. [sekka1/mesosphere-docker](https://github.com/sekka1/mesosphere-docker)
 7. [Marathon: Application Basics](http://mesosphere.github.io/marathon/docs/application-basics.html)
 8. [Marathon: REST API](http://mesosphere.github.io/marathon/docs/rest-api.html)
+
+<br /> 
 
 ***
 **版权声明**

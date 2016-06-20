@@ -69,22 +69,16 @@ theme: light
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: 
-    gitcafe: https://git.coding.net/kiwenlau/kiwenlau.git,gitcafe-pages
-
-
+  repo: https://git.coding.net/kiwenlau/kiwenlau.git
 
 feed:
     type: atom
     path: atom.xml
     limit: 10
 
-
 sitemap:
     path: sitemap.xml
 
 baidusitemap:
     path: baidusitemap.xml
-
-
 
