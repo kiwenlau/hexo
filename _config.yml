@@ -60,8 +60,12 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+
+
+
 # 使用light主题: https://github.com/hexojs/hexo-theme-light
 theme: light
+
 
 # RSS订阅
 feed:
@@ -69,9 +73,11 @@ feed:
     path: atom.xml
     limit: 10
 
+
 # 网站地图
 sitemap:
 baidusitemap:
+
 
 # 部署在Coding上
 # deploy:
