@@ -1,6 +1,6 @@
 .entry
   .gist
-    background #fff
+    background #eee
     border 1px solid color-border
     margin-top 15px
     padding 7px 15px
@@ -8,7 +8,7 @@
     text-shadow 0 0 1px #fff
     line-height 1.6
     overflow auto
-    color #fff
+    color #666
     .gist-file
       border none
       font-family inherit
@@ -34,10 +34,10 @@
 
 figure.highlight
   background #fff
-  border 1px solid #cccccc
-  margin-top 10px
-  padding 5px 0px
-  border-radius 3px
+  border 1px solid color-border
+  margin-top 15px
+  padding 7px 15px
+  border-radius 2px
   text-shadow 0 0 1px #fff
   line-height 1.6
   overflow auto
@@ -49,26 +49,33 @@ figure.highlight
     text-shadow 0 0 1px #fff
     a
       position absolute
-      right 0px
+      right 15px
 
   pre
     border none
     padding 0
     margin 0
 
+  table
+    margin-top 0
+    border-spacing 0
+
   .gutter
-    color #fff
-    padding-right 0px
-    border-right 0px solid color-border
+    color color-meta
+    padding-right 15px
+    border-right 1px solid color-border
     text-align right
 
   .code
-    padding-left 0px
+    padding-left 5px
     border-left 1px solid #fff
-    color #000
+    color #666
 
   .line
-    height: 10px
+    height: 20px
+
+  .line.marked
+    background: #d6d6d6
 
 pre
   // Theme: Solarized - Light
@@ -140,16 +147,12 @@ pre
 
   .deletion
     color #dc322f
-		
-.entry>table
-	border-collapse collapse
-	border 1px solid #000000
-	th,td
-			padding 5px 15px
-	  border 1px solid black
 
-		margin 0 0 0 0
-	thead
-		border-bottom 2px solid #000000
-	tr:nth-child(even)
-		background: #FFFFFF
+.entry>table
+  border-collapse collapse
+  border 1px solid #000
+  th,td
+    padding 5px 15px
+    border 1px solid black
+    margin 0 0 0 0
+
