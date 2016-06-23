@@ -3,6 +3,7 @@ menu:
   博客列表: /archives
 
 widgets:
+- search
 - photo
 - link
 - tagcloud
