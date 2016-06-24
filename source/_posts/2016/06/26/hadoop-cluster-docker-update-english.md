@@ -11,7 +11,7 @@ tags: [Docker, Hadoop]
 <!-- more -->
 
 - Author: [KiwenLau](http://kiwenlau.com/)
-- Date: [2016-06-26](http://kiwenlau.com/2016/06/26/160626-hadoop-cluster-docker-update-english/)
+- Date: [2016-06-26](http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/)
 
 ##Introduction
 
@@ -142,5 +142,5 @@ do 5~6 like previous section
 ***
 **All Rights Reserved**
 Please keep author name [KiwenLau](http://kiwenlau.com/)and original blog url：
-[http://kiwenlau.com/2016/06/26/160626-hadoop-cluster-docker-update-english/](http://kiwenlau.com/2016/06/26/160626-hadoop-cluster-docker-update-english/)
+[http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/](http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/)
 ***
