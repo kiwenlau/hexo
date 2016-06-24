@@ -160,7 +160,7 @@ tags: [Hadoop, Docker]
 
 下图显示了项目的Docker镜像结构：
 
-![](/image/150608/image architecture.jpg "Image Architecture")
+![](150608-hadoop-cluster-docker/image-architecture.jpg "Image Architecture")
 
 ##三. 3节点Hadoop集群搭建步骤
 
