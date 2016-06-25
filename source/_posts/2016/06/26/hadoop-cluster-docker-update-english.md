@@ -1,4 +1,4 @@
-title: Run Hadoop Cluster within Docker Containers Update
+title: Run Hadoop Cluster in Docker Update
 
 date: 2016-06-26 10:00
 
@@ -6,7 +6,7 @@ tags: [Docker, Hadoop]
 
 ---
 
-**Abstract:** Last year, I developed [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker) project, which aims to help user quickly build [Hadoop](http://hadoop.apache.org/) cluster on local host using [Docker](https://www.docker.com/). The project is quite popular with 250 stars on [GitHub](https://github.com/kiwenlau/hadoop-cluster-docker) and 2500+ pulls on [Docker Hub](https://hub.docker.com/r/kiwenlau/hadoop-master/). In this blog, I'd like to introduce the update version.
+**Abstract:** Last year, I developed [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker) project, which aims to help user quickly build [Hadoop](http://hadoop.apache.org/) cluster on local host using [Docker](https://www.docker.com/). The project is quite popular with 250+ stars on [GitHub](https://github.com/kiwenlau/hadoop-cluster-docker) and 2500+ pulls on [Docker Hub](https://hub.docker.com/r/kiwenlau/hadoop-master/). In this blog, I'd like to introduce the update version.
 
 <!-- more -->
 
@@ -115,7 +115,7 @@ do 1~3 like previous section
 ####**2. rebuild docker image**
 
 ```
-./resize-cluster.sh 5
+sudo ./resize-cluster.sh 5
 ```
 - specify parameter > 1: 2, 3..
 - this script just rebuild hadoop image with different **slaves** file, which pecifies the name of all slave nodes
@@ -124,7 +124,8 @@ do 1~3 like previous section
 ####**3. start container**
 
 ```
-./start-container.sh 5
+cd hadoop-cluster-docker
+sudo ./start-container.sh 5
 ```
 - use the same parameter as the step 2
 
@@ -141,6 +142,6 @@ do 5~6 like previous section
 
 ***
 **All Rights Reserved**
-Please keep author name [KiwenLau](http://kiwenlau.com/)and original blog url：
+Please keep author name [KiwenLau](http://kiwenlau.com/) and original blog url：
 [http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/](http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/)
 ***
