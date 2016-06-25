@@ -6,7 +6,7 @@ tags: [Docker, Hadoop]
 
 ---
 
-**Abstract:** Last year, I developed [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker) project, which aims to help user quickly build [Hadoop](http://hadoop.apache.org/) cluster on local host using [Docker](https://www.docker.com/). The project is quite popular with 249 stars on [GitHub](https://github.com/kiwenlau/hadoop-cluster-docker) and 2500+ pulls on [Docker Hub](https://hub.docker.com/r/kiwenlau/hadoop-master/). In this blog, I'd like to introduce the update version.
+**Abstract:** Last year, I developed [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker) project, which aims to help user quickly build [Hadoop](http://hadoop.apache.org/) cluster on local host using [Docker](https://www.docker.com/). The project is quite popular with 250 stars on [GitHub](https://github.com/kiwenlau/hadoop-cluster-docker) and 2500+ pulls on [Docker Hub](https://hub.docker.com/r/kiwenlau/hadoop-master/). In this blog, I'd like to introduce the update version.
 
 <!-- more -->
 
