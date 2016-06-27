@@ -157,7 +157,7 @@ nodaemon=true
 
 下图显示了我在Ubuntu主机上运行单机版Kubernetes的架构。可知，我一共运行了7个容器，分别运行Kubernetes的各个组件。
 
-![](160109-multiple-processes--docker-container/single-kubernetes-docker.png)
+<img src="160109-multiple-processes--docker-container/kubernetes-multiple-docker.png" width = "500"/>
 
 ##使用单个Docker容器运行Kubernetes
 
@@ -170,7 +170,7 @@ nodaemon=true
 
 容器启动时，各个组件由shell脚本或者supervisor启动。
 
-![](160109-multiple-processes--docker-container/kubernetes-shell-supervisor.png)
+<img src="160109-multiple-processes--docker-container/kubernetes-single-docker.png" width = "500"/>
 
 ##参考
 1. [Using Supervisor with Docker](https://docs.docker.com/engine/articles/using_supervisord/)

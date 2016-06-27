@@ -15,7 +15,7 @@ tags: [Vagrant]
 
 本文所有操作是在MacBook上进行的，Windows上的操作大部分一致，但是可能会有一些小问题。
 
-![](160619-vagrant-virtual-machine/vagrant-vm.png)
+<img src="160619-vagrant-virtual-machine/vagrant-vm.png" width = "300"/>
 
 ##一. 快速入门
 

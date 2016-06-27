@@ -39,7 +39,7 @@ tags: [Docker, Kubernetes]
 
 下图显示了我在Ubuntu主机上运行单机版Kubernetes的架构。可知，我一共运行了7个容器，分别运行Kubernetes的各个组件。事实上，Kuberenetes未来的开发目标正是将Kubernetes的各个组件运行到容器之中，这样可以方便Kubernetes的部署和升级。现在我将Kubernetes的各个组件全部运行在容器中必然存在很多问题且很多问题是未知的，因此这个项目仅做学习测试而不宜部署到生产环境中。Kubernetes各个组件容器之间的通信通过docker link实现，其中apiserver与ectd的4001端口进行通信，scheduler，controller-manager，kubelet，proxy以及kubectl与apiserver的8080端口进行通信。
 
-![](151128-single-kubernetes-docker/single-kubernetes-docker.png)
+<img src="151128-single-kubernetes-docker/kubernetes-multiple-docker.png" width = "500"/>
 
 集群的大致运行流程是这样的: 用户通过kubectl命令向apiserver发起创建Pod的请求; scheduler将创建Pod的任务分配给kubelet；kubelet中包含了一个docker命令行工具，该工具会向Docker deamon发起创建容器的请求; Docker deamon负责下载镜像然后创建容器。
 

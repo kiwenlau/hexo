@@ -24,7 +24,7 @@ By packaging [Hadoop](http://hadoop.apache.org/) into [Docker](https://www.docke
 
 Following figure shows the architecture of [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker) project. Hadoop master and slaves run within different Docker containers, NameNode and ResourceManager run within hadoop-master container while DataNode and NodeManager run within hadoop-slave container. NameNode and DataNode are the components of Hadoop Distributed File System(**HDFS**), while ResourceManager and NodeManager are the components of Hadoop cluster resource management system called Yet Another Resource Manager(**YARN**). HDFS is in charge of storing input and output data, while YARN is in charge of managing CPU and Memory resources. 
 
-![](hadoop-cluster-docker-update-english/hadoop-cluster-docker.png)
+<img src="hadoop-cluster-docker-update-english/hadoop-cluster-docker.png" width = "500"/>
 
 In the old version, I use [serf](https://www.serfdom.io/)/[dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) to provide DNS service for Hadoop cluster, which is not an elegant solution because it requires extra installation/configuration and it will delay the cluster startup procedure. Thanks to the enhancement of Docker network function, we don't need to use [serf](https://www.serfdom.io/)/[dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) any more. We can create a independent network for Hadoop cluster using following command:
 
