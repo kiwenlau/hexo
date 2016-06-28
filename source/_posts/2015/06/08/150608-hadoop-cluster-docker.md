@@ -6,7 +6,7 @@ tags: [Hadoop, Docker]
 
 ---
 
-**摘要:** 本文介绍了基于Docker在单机上搭建多节点Hadopp集群方法，Hadoop的Master和Slave分别运行在不同容器中。
+**摘要:** 本文已更新，请查看: [基于Docker搭建Hadoop集群之升级版](http://kiwenlau.com/2016/06/12/160612-hadoop-cluster-docker-update/)!!!
 
 **GitHub地址:**
 - [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau)
@@ -16,6 +16,8 @@ tags: [Hadoop, Docker]
 - 作者: [KiwenLau](http://kiwenlau.com/)
 - 日期: [2015-06-08](http://kiwenlau.com/2015/06/08/150608-hadoop-cluster-docker/)
 
+本文介绍了基于Docker在单机上搭建多节点Hadopp集群方法，Hadoop的Master和Slave分别运行在不同容器中。
+
 可以直接进入第三部分，快速在本机搭建一个3个节点的Hadoop集群
 
 ##一. 项目简介
@@ -24,27 +26,26 @@ tags: [Hadoop, Docker]
 
 我的目标是将Hadoop集群运行在Docker容器中，使Hadoop开发者能够快速便捷地在本机搭建多节点的Hadoop集群。其实这个想法已经有了不少实现，但是都不是很理想，他们或者镜像太大，或者使用太慢，或者使用了第三方工具使得使用起来过于复杂...下表为一些已知的Hadoop on Docker项目以及其存在的问题。
 
-
-|                  项目                             | 镜像大小    |        问题                        |
-| : ------------- ---------------| : ------ | :-------------------- |
-|sequenceiq/hadoop-docker:latest  |1.491GB    | 镜像太大，只支持单个节点|
-|sequenceiq/hadoop-docker:2.7.0  |1.76 GB     |           同上                           |
-|sequenceiq/hadoop-docker:2.6.0  |1.624GB    |         同上                            |
-|sequenceiq/ambari:latest               |1.782GB     |  镜像太大，使用太慢|
-|sequenceiq/ambari:2.0.0               |4.804GB     |          同上                           |
-|sequenceiq/ambari:latest:1.70      |4.761GB    |         同上                         |
-|alvinhenrick/hadoop-mutinode     |4.331GB    |镜像太大，构建太慢，增加节点麻烦，有bug
+|项目                              |镜像大小   |问题                  |
+|:--------------------------------|:--------|:---------------------|
+|sequenceiq/hadoop-docker:latest  |1.491GB  | 镜像太大，只支持单个节点 |
+|sequenceiq/hadoop-docker:2.7.0   |1.76 GB  | 同上                  |
+|sequenceiq/hadoop-docker:2.6.0   |1.624GB  | 同上                  |
+|sequenceiq/ambari:latest         |1.782GB   | 镜像太大，使用太慢     |
+|sequenceiq/ambari:2.0.0          |4.804GB   | 同上                 |
+|sequenceiq/ambari:latest:1.70    |4.761GB   | 同上                 |
+|alvinhenrick/hadoop-mutinode     |4.331GB   | 镜像太大，构建太慢，增加节点麻烦，有bug|
 
 我的项目参考了alvinhenrick/hadoop-mutinode项目，不过我做了大量的优化和重构。alvinhenrick/hadoop-mutinode项目的Github主页以及作者所写的博客地址：[GitHub](https://github.com/alvinhenrick/hadoop-mutinode)，[博客](http://alvinhenrick.com/2014/07/16/hadoop-yarn-multinode-cluster-with-docker/)
 
 下面两个表是alvinhenrick/hadoop-mutinode项目与我的kiwenlau/hadoop-cluster-docker项目的参数对比
 
-|镜像名称	                                 |构建时间	       | 镜像层数   | 镜像大小 |
+|镜像名称	                    |构建时间	      | 镜像层数  | 镜像大小 |
 | :-------------------------| :---------- | :------- | :------- |
-|alvinhenrick/serf                     |258.213s       | 21	        | 239.4MB |
-|alvinhenrick/hadoop-base	| 2236.055s    | 58	        | 4.328GB |
-|alvinhenrick/hadoop-dn	        | 51.959s        | 74	        | 4.331GB |
-|alvinhenrick/hadoop-nn-dn    | 49.548s       |  84           | 4.331GB |
+|alvinhenrick/serf          | 258.213s    | 21	     | 239.4MB |
+|alvinhenrick/hadoop-base	| 2236.055s   | 58	     | 4.328GB |
+|alvinhenrick/hadoop-dn	    | 51.959s     | 74	     | 4.331GB |
+|alvinhenrick/hadoop-nn-dn  | 49.548s     |  84      | 4.331GB |
 
 |镜像名称	                                 |构建时间	       | 镜像层数   | 镜像大小 |
 | :-------------------------| :---------- | :------- | :------- |
@@ -160,7 +161,7 @@ tags: [Hadoop, Docker]
 
 下图显示了项目的Docker镜像结构：
 
-![](150608-hadoop-cluster-docker/image-architecture.jpg "Image Architecture")
+<img src="150608-hadoop-cluster-docker/image-architecture.png" width = "500"/>
 
 ##三. 3节点Hadoop集群搭建步骤
 
