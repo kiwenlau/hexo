@@ -178,18 +178,6 @@ nodaemon=true
 3. [基于Docker搭建单机版Kuberntes](http://kiwenlau.com/2015/11/28/151128-single-kubernetes-docker/)
 4. [kiwenlau/single-kubernetes-docker](https://github.com/kiwenlau/single-kubernetes-docker)
 
-<br /> 
 
-***
-**版权声明**
-转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：
-[http://kiwenlau.com/2016/01/09/160109-multiple-processes--docker-container/](http://kiwenlau.com/2016/01/09/160109-multiple-processes--docker-container/)
-***
-
-
-
-
-
-
-
+<br />
 

@@ -168,17 +168,6 @@ sudo docker run -p 5050:5050 -p 8080:8080 --name mesos -it -w /root index.alauda
 7. [Marathon: Application Basics](http://mesosphere.github.io/marathon/docs/application-basics.html)
 8. [Marathon: REST API](http://mesosphere.github.io/marathon/docs/rest-api.html)
 
-<br /> 
 
-***
-**版权声明**
-
-转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文URL地址：
-
-[http://kiwenlau.com/2015/09/18/150918-single-mesos-docker/](http://kiwenlau.com/2015/09/18/150918-single-mesos-docker/)
-***
-
-
-
-
+<br />
 

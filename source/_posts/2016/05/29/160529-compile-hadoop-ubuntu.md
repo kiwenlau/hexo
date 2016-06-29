@@ -95,10 +95,4 @@ export HADOOP_COMMON_LIB_NATIVE_DIR="~/hadoop/lib/"
 export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=~/hadoop/lib/"
 ```
 
-<br /> 
-
-***
-**版权声明**
-转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：
-[http://kiwenlau.com/2016/05/29/160529-compile-hadoop-ubuntu/](http://kiwenlau.com/2016/05/29/160529-compile-hadoop-ubuntu/)
-***
+<br />

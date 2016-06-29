@@ -389,10 +389,5 @@ Hello	2
 - 请注意，若节点增加，请务必先测试容器，然后再开启Hadoop, 因为serf可能还没有发现所有节点，而dnsmasq的DNS服务器表示还没有配置好服务
 - 测试等待时间取决于机器性能....
 
-<br /> 
 
-***
-**版权声明**
-转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：
-[http://kiwenlau.com/2015/06/08/150608-hadoop-cluster-docker/](http://kiwenlau.com/2015/06/08/150608-hadoop-cluster-docker/)
-***
+<br />

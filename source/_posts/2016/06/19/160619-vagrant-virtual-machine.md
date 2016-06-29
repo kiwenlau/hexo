@@ -190,11 +190,5 @@ Vagrant是基于Vagrantfile创建虚拟机，而Docker是基于Dockerfile创建�
 
 Vagrant的功能与[Docker Machine](https://docs.docker.com/machine/)功能一致，都是用于创建虚拟机。但是，Docker Machine是专用于创建Docker主机的，而Vagrant可以用于创建不同的开发环境。理论上Docker用户使用Docker Machine会更方便，但是我并没有选择Docker Machine，因为感觉并没有实际需求。Docker Machine所创建的本地虚拟机默认基于Docker专用的Linux发行版[boot2docker](https://github.com/boot2docker/boot2docker)，云端虚拟机默认基于ubuntu，对其他Linux发行版的支持还处于实验阶段。而Vagrant稳定支持更多Linux发行版，所以可以满足更多需求。Vagrant可以通过Vagrantfile进行自定义配置，而Docker Machine并没有对应功能，因此Vagrant用于创建虚拟机更加灵活。
 
-<br /> 
 
-***
-**版权声明**
-转载时请注明作者[KiwenLau](http://kiwenlau.com/)以及本文地址：
-[http://kiwenlau.com/2016/06/19/160619-vagrant-virtual-machine/](http://kiwenlau.com/2016/06/19/160619-vagrant-virtual-machine/)
-***
-
+<br />
