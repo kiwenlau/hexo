@@ -95,4 +95,3 @@ export HADOOP_COMMON_LIB_NATIVE_DIR="~/hadoop/lib/"
 export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=~/hadoop/lib/"
 ```
 
-<br />

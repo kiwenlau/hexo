@@ -138,5 +138,3 @@ do 5~6 like previous section
 1. [Quickly build arbitrary size Hadoop Cluster based on Docker](http://kiwenlau.blogspot.jp/2015/05/quickly-build-arbitrary-size-hadoop.html)
 2. [How to Install Hadoop on Ubuntu 13.10](https://www.digitalocean.com/community/tutorials/how-to-install-hadoop-on-ubuntu-13-10)
 
-
-<br />

@@ -178,6 +178,3 @@ nodaemon=true
 3. [基于Docker搭建单机版Kuberntes](http://kiwenlau.com/2015/11/28/151128-single-kubernetes-docker/)
 4. [kiwenlau/single-kubernetes-docker](https://github.com/kiwenlau/single-kubernetes-docker)
 
-
-<br />
-

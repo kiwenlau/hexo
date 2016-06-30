@@ -136,5 +136,3 @@ Hadoop网页管理地址:
 1. [基于Docker搭建多节点Hadoop集群](http://kiwenlau.com/2015/06/08/150608-hadoop-cluster-docker/)
 2. [How to Install Hadoop on Ubuntu 13.10](https://www.digitalocean.com/community/tutorials/how-to-install-hadoop-on-ubuntu-13-10)
 
-
-<br />

@@ -95,6 +95,3 @@ wget https://github.com/kiwenlau/compile-hadoop/releases/download/$VERSION/hadoo
 
 软件源码以数据卷(volume)的形式挂载的容器内，编译所得的可执行文件也将位于数据卷内。
 
-
-<br />
-

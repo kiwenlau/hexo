@@ -168,6 +168,3 @@ sudo docker run -p 5050:5050 -p 8080:8080 --name mesos -it -w /root index.alauda
 7. [Marathon: Application Basics](http://mesosphere.github.io/marathon/docs/application-basics.html)
 8. [Marathon: REST API](http://mesosphere.github.io/marathon/docs/rest-api.html)
 
-
-<br />
-

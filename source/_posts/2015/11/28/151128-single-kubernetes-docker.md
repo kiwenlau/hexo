@@ -143,6 +143,3 @@ Commercial support is available at
 4. [Kubernetes 架构浅析](http://weibo.com/p/1001603912843031387951?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 5. [An Introduction to Kubernetes](https://www.digitalocean.com/community/tutorials/an-introduction-to-kubernetes)
 
-
-<br />
-
