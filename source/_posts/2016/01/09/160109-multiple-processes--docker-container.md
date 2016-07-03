@@ -17,7 +17,7 @@ tags: [Docker, Kubernetes]
 - 作者: [KiwenLau](http://kiwenlau.com/)
 - 日期: [2016-01-09](http://kiwenlau.com/2016/01/09/160109-multiple-processes--docker-container/)
 
-##简介
+## 一. 简介
 
 一般来说，Docker容器比较适合运行单个进程。例如，项目"**使用多个Docker容器运行Kubernetes**"，Kubernetes的各个组件分别运行在各个容器之中，每个容器只运行单个进程。
 
@@ -25,7 +25,7 @@ tags: [Docker, Kubernetes]
 
 一种方法是使用**Shell脚本**，另一种方法是使用进程管理工具[Supervisor](http://supervisord.org/)。[kiwenlau/kubernetes-shell](https://github.com/kiwenlau/kubernetes-shell)和[kiwenlau/kubernetes-supervisor](https://github.com/kiwenlau/kubernetes-supervisor)分别采用了这两种方法，用于启动多个进程来运行Kubernetes的各个组件，从而实现"**使用单个Docker容器运行Kubernetes**"。下面我将分别介绍两种不同方法。
 
-##使用Shell脚本运行多进程Docker容器
+## 二. 使用Shell脚本运行多进程Docker容器
 
 这个方法大家应该会比较熟悉，使用Shell脚本依次启动Kubernetes的各个组件即可。以下为**start-kubernetes.sh**
 
@@ -74,7 +74,7 @@ while [[ true ]]; do
 done
 ```
 
-##使用supervisor运行多进程Docker容器
+## 三. 使用supervisor运行多进程Docker容器
 
 [Supervisor](http://supervisord.org/)是进程管理工具。这时，需要编写supervisor的配置文件**kubernetes.conf**:
 
@@ -142,14 +142,14 @@ nodaemon=true
 
 
 
-##总结
+## 四. 总结
 
 使用Shell脚本运行多进程Docker容器，优势是大家比较熟悉。由于需要保持Docker容器的1号进程始终运行，这一点比较容易出错。若要实现进程意外退出后自动重启的话，使用shell脚本比较麻烦。
 
 使用supervisor运行多进程Docker容器，非常方便。另外，保持1号进程保持运行，以及进程意外退出后自动重启，实现起来都很简单。
 
 
-##使用多个Docker容器运行Kubernetes
+#### **使用多个Docker容器运行Kubernetes**
 
 **GitHub地址**
 
@@ -159,7 +159,7 @@ nodaemon=true
 
 <img src="160109-multiple-processes--docker-container/kubernetes-multiple-docker.png" width = "500"/>
 
-##使用单个Docker容器运行Kubernetes
+#### **使用单个Docker容器运行Kubernetes**
 
 **GitHub地址:**
 

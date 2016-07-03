@@ -16,7 +16,7 @@ tags: [Docker, Kubernetes]
 - 作者: [KiwenLau](http://kiwenlau.com/)
 - 日期: [2015-11-28](http://kiwenlau.com/2015/11/28/151128-single-kubernetes-docker/)
 
-##1. Kubernetes简介
+## 一. Kubernetes简介
 
 2006年，Google工程师Rohit Seth发起了Cgroups内核项目。Cgroups是容器实现CPU，内存等资源隔离的基础，由此可见Google其实很早就开始涉足容器技术。而事实上，Google内部使用容器技术已经长达十年，目前谷歌所有业务包括搜索，Gmail，MapReduce等均运行在容器之中。Google内部使用的集群管理系统--Borg，堪称其容器技术的瑞士军刀。
 
@@ -35,7 +35,7 @@ tags: [Docker, Kubernetes]
 | 客户端   | kubectl            | 命令行工具，向apiserver发起创建Pod等请求          |
 
 
-##2. kiwenlau/kubernetes镜像简介
+## 二. kiwenlau/kubernetes镜像简介
 
 下图显示了我在Ubuntu主机上运行单机版Kubernetes的架构。可知，我一共运行了7个容器，分别运行Kubernetes的各个组件。事实上，Kuberenetes未来的开发目标正是将Kubernetes的各个组件运行到容器之中，这样可以方便Kubernetes的部署和升级。现在我将Kubernetes的各个组件全部运行在容器中必然存在很多问题且很多问题是未知的，因此这个项目仅做学习测试而不宜部署到生产环境中。Kubernetes各个组件容器之间的通信通过docker link实现，其中apiserver与ectd的4001端口进行通信，scheduler，controller-manager，kubelet，proxy以及kubectl与apiserver的8080端口进行通信。
 
@@ -61,9 +61,9 @@ Ubuntu主机版本信息:
 
 
 
-##3. 运行步骤
+## 三. 运行步骤
 
-**1. 安装Docker**
+#### **1. 安装Docker**
 
 ubuntu 14.04上安装Docker: 
 
@@ -73,7 +73,7 @@ curl -fLsS https://get.docker.com/ | sh
 
 其他系统请参考: [https://docs.docker.com/](https://docs.docker.com/)
 
-**2. 下载Docker镜像**
+#### **2. 下载Docker镜像**
 
 我将kiwenlau/kubernetes:1.07以及其他用到的Docker镜像都放在[灵雀云](http://www.alauda.cn/)
 
@@ -84,7 +84,7 @@ sudo docker pull index.alauda.cn/kiwenlau/nginx:1.9.7
 sudo docker pull index.alauda.cn/kiwenlau/pause:0.8.0
 ```
 
-**3. 启动Kubernetes**
+#### **3. 启动Kubernetes**
 
 ```sh
 git clone https://github.com/kiwenlau/single-kubernetes-docker
@@ -96,7 +96,7 @@ sudo ./start-kubernetes-alauda.sh
 运行结束后进入kubectl容器。容器主机名为kubeclt。可以通过"exit"命令退出容器返回到主机，然后可以通过"sudo docker exec -it kubectl bash"命令再次进入kubectl容器。
 
 
-**4. 测试Kubernetes**
+#### **4. 测试Kubernetes**
 
 运行测试脚本，该脚本会启动一个nginx pod。
 
@@ -136,7 +136,8 @@ Commercial support is available at
 ```
 
 
-##3. 参考
+## 四. 参考
+
 1. [meteorhacks/hyperkube](https://github.com/meteorhacks/hyperkube)
 2. [meteorhacks/kube-init](https://github.com/meteorhacks/kube-init)
 3. [Kubernetes: The Future of Cloud Hosting](https://meteorhacks.com/learn-kubernetes-the-future-of-the-cloud)

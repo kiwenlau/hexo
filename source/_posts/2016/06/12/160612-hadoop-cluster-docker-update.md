@@ -13,7 +13,7 @@ tags: [Docker, Hadoop]
 - 作者: [KiwenLau](http://kiwenlau.com/)
 - 日期: [2016-06-12](http://kiwenlau.com/2016/06/12/160612-hadoop-cluster-docker-update/)
 
-##一. 项目介绍
+## 一. 项目介绍
 
 将[Hadoop](http://hadoop.apache.org/)打包到[Docker](https://www.docker.com/)镜像中，就可以快速地在单个机器上搭建Hadoop集群，这样可以方便新手测试和学习。
 
@@ -36,27 +36,27 @@ sudo docker network create --driver=bridge hadoop
 - 使用[kiwenlau/compile-hadoop](https://github.com/kiwenlau/compile-hadoop)项目编译的Hadoo进行安装
 - 优化Hadoop配置
 
-##二. 3节点Hadoop集群搭建步骤
+## 二. 3节点Hadoop集群搭建步骤
 
-###1. 下载Docker镜像
+#### **1. 下载Docker镜像**
 
 ```
 sudo docker pull kiwenlau/hadoop:1.0
 ```
 
-###2. 下载GitHub仓库
+#### **2. 下载GitHub仓库**
 
 ```
 git clone https://github.com/kiwenlau/hadoop-cluster-docker
 ```
 
-###3. 创建Hadoop网络
+#### **3. 创建Hadoop网络**
 
 ```
 sudo docker network create --driver=bridge hadoop
 ```
 
-###4. 运行Docker容器
+#### **4. 运行Docker容器**
 
 ```
 cd hadoop-cluster-docker
@@ -75,13 +75,13 @@ root@hadoop-master:~#
 - 启动了3个容器，1个master, 2个slave
 - 运行后就进入了hadoop-master容器的/root目录
 
-###5. 启动hadoop
+#### **5. 启动hadoop**
 
 ```
 ./start-hadoop.sh
 ```
 
-###6. 运行wordcount
+#### **6. 运行wordcount**
 
 ```
 ./run-wordcount.sh
@@ -107,31 +107,31 @@ Hadoop网页管理地址:
 
 192.168.59.1为运行容器的主机的IP。
 
-##三. N节点Hadoop集群搭建步骤
+## 三. N节点Hadoop集群搭建步骤
 
-###1. 准备
+#### **1. 准备**
 
 - 参考第二部分1~3：下载Docker镜像，下载GitHub仓库，以及创建Hadoop网络
 
-###2. 重新构建Docker镜像
+#### **2. 重新构建Docker镜像**
 
 ```
 ./resize-cluster.sh 5
 ```
 - 可以指定任意N(N>1)
 
-###3. 启动Docker容器
+#### **3. 启动Docker容器**
 
 ```
 ./start-container.sh 5
 ```
 - 与第2步中的N保持一致。
 
-###4. 运行Hadoop
+#### **4. 运行Hadoop**
 
 - 参考第二部分5~6：启动Hadoop，并运行wordcount。
 
-##参考
+## 参考
 
 1. [基于Docker搭建多节点Hadoop集群](http://kiwenlau.com/2015/06/08/150608-hadoop-cluster-docker/)
 2. [How to Install Hadoop on Ubuntu 13.10](https://www.digitalocean.com/community/tutorials/how-to-install-hadoop-on-ubuntu-13-10)

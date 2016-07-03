@@ -20,7 +20,7 @@ tags: [Hadoop, Docker]
 
 可以直接进入第三部分，快速在本机搭建一个3个节点的Hadoop集群
 
-##一. 项目简介
+## 一. 项目简介
 
 直接用机器搭建Hadoop集群是一个相当痛苦的过程，尤其对初学者来说。他们还没开始跑wordcount，可能就被这个问题折腾的体无完肤了。
 
@@ -59,30 +59,30 @@ tags: [Hadoop, Docker]
 - 更快的构造时间
 - 更少的镜像层数
 
-####更快更方便地改变Hadoop集群节点数目
+#### **更快更方便地改变Hadoop集群节点数目**
 
 另外，alvinhenrick/hadoop-mutinode项目增加节点时需要手动修改Hadoop配置文件然后重新构建hadoop-nn-dn镜像,然后修改容器启动脚本，才能实现增加节点的功能。而我通过shell脚本实现自动话，不到1分钟可以重新构建hadoop-master镜像，然后立即运行！！！本项目默认启动3个节点的Hadoop集群，支持任意节点数的hadoop集群。
 
 另外，启动hadoop, 运行wordcount以及重新构建镜像都采用了shell脚本实现自动化。这样使得整个项目的使用以及开发都变得非常方便快捷:)
 
-####开发测试环境
+#### **开发测试环境**
 
 - 操作系统：ubuntu 14.04 和 ubuntu 12.04
 - 内核版本: 3.13.0-32-generic
 - Docker版本：1.5.0 和1.6.2
 
-####硬盘不够，内存不够，尤其是内核版本过低会导致运行失败:(
+#### **硬盘不够，内存不够，尤其是内核版本过低会导致运行失败:(**
 
-##二. 镜像简介
+## 二. 镜像简介
 
-###本项目一共开发了4个镜像
+#### **本项目一共开发了4个镜像**
 
 - serf-dnsmasq
 - hadoop-base
 - hadoop-master
 - hadoop-slave
 
-###serf-dnsmasq镜像
+#### **serf-dnsmasq镜像**
 
 - 基于ubuntu:15.04 (选它是因为它最小，不是因为它最新...)
 - 安装serf: serf是一个分布式的机器节点管理工具。它可以动态地发现所有hadoop集群节点。
@@ -90,7 +90,7 @@ tags: [Hadoop, Docker]
 
 容器启动时，master节点的IP会传给所有slave节点。serf会在container启动后立即启动。slave节点上的serf agent会马上发现master节点（master IP它们都知道嘛），master节点就马上发现了所有slave节点。然后它们之间通过互相交换信息，所有节点就能知道其他所有节点的存在了！(Everyone will know Everyone). serf发现新的节点时，就会重新配置dnsmasq,然后重启dnsmasq. 所以dnsmasq就能够解析集群的所有节点的域名啦。这个过程随着节点的增加会耗时更久，因此，若配置的Hadoop节点比较多，则在启动容器后需要测试serf是否发现了所有节点，dns是否能够解析所有节点域名。稍等片刻才能启动Hadoop。这个解决方案是由SequenceIQ公司提出的，该公司专注于将Hadoop运行在Docker中。请参考这个PPT：[Docker-based Hadoop Provisioning](http://www.slideshare.net/JanosMatyas/docker-based-hadoop-provisioning)
 
-###hadoop-base镜像
+#### **hadoop-base镜像**
 
 - 基于serf-dnsmasq镜像
 - 安装JDK(openjdk)
@@ -109,7 +109,7 @@ tags: [Hadoop, Docker]
 - [hadoop-2.6.0](http://pan.baidu.com/s/1eQgvF2M)
 - [hadoop-2.7.0]( http://pan.baidu.com/s/1c0HD0Nu)
 
-###hadoop-master镜像
+#### **hadoop-master镜像**
 
 - 基于hadoop-base镜像
 - 配置hadoop的master节点
@@ -117,12 +117,12 @@ tags: [Hadoop, Docker]
 
 这一步需要配置slaves文件，而slaves文件需要列出所有节点的域名或者IP。因此，Hadoop节点数目不同时，slaves文件自然也不一样。因此，更改Hadoop集群节点数目时，需要修改slaves文件然后重新构建hadoop-master镜像。我编写了一个resize-cluster.sh脚本自动化这一过程。仅需给定节点数目作为脚本参数就可以轻松实现Hadoop集群节点数目的更改。由于hadoop-master镜像仅仅做一些配置工作，也无需下载任何文件，整个过程非常快，1分钟就足够了。
 
-###hadoop-slave镜像
+#### **hadoop-slave镜像**
 
 - 基于hadoop-base镜像
 - 配置hadoop的slave节点
 
-###镜像大小分析
+#### **镜像大小分析**
 
 下表为sudo docker images的运行结果
 
@@ -157,15 +157,15 @@ tags: [Hadoop, Docker]
 - 安装hadoop需要158.5MB
 - ubuntu,openjdk与hadoop均为镜像所必须，三者一共占了:614.4MB
 
-### 因此，我所开发的hadoop镜像以及接近最小，优化空间已经很小了
+#### **因此，我所开发的hadoop镜像以及接近最小，优化空间已经很小了**
 
 下图显示了项目的Docker镜像结构：
 
 <img src="150608-hadoop-cluster-docker/image-architecture.png" width = "500"/>
 
-##三. 3节点Hadoop集群搭建步骤
+## 三. 3节点Hadoop集群搭建步骤
 
-###1. 拉取镜像
+#### 1. **拉取镜像**
 
 ```sh
 sudo docker pull index.alauda.cn/kiwenlau/hadoop-master:0.1.0
@@ -194,7 +194,7 @@ sudo docker images
 - hadoop-base镜像是基于serf-dnsmasq镜像的，hadoop-slave镜像和hadoop-master镜像都是基于hadoop-base镜像
 - 所以其实4个镜像一共也就777.4MB:)
 
-###2. 修改镜像tag
+#### **2. 修改镜像tag**
 
 ```sh
 sudo docker tag d63869855c03 kiwenlau/hadoop-slave:0.1.0
@@ -225,7 +225,7 @@ sudo docker images
 - 之所以要修改镜像，是因为我默认是将镜像上传到Dockerhub, 因此Dokerfile以及shell脚本中得镜像名称都是没有alauada前缀的，sorry for this....不过改tag还是很快滴
 - 若直接下载我在DockerHub中的镜像，自然就不需要修改tag...不过Alauda镜像下载速度很快的哈~
 
-###3.下载源代码
+#### **3.下载源代码**
 
 ```sh
 git clone https://github.com/kiwenlau/hadoop-cluster-docker
@@ -237,7 +237,7 @@ git clone https://github.com/kiwenlau/hadoop-cluster-docker
 git clone http://git.oschina.net/kiwenlau/hadoop-cluster-docker
 ```
 
-###4. 运行容器
+#### **4. 运行容器**
 
 ```sh
 cd hadoop-cluster-docker
@@ -272,7 +272,7 @@ hdfs  run-wordcount.sh	serf_log  start-hadoop.sh  start-ssh-serf.sh
 - start-hadoop.sh是开启hadoop的shell脚本
 - run-wordcount.sh是运行wordcount的shell脚本，可以测试镜像是否正常工作
 
-###5.测试容器是否正常启动(此时已进入master容器)
+#### **5.测试容器是否正常启动(此时已进入master容器)**
 
 *查看hadoop集群成员*
 
@@ -326,7 +326,7 @@ Connection to slave2.kiwenlau.com closed.
 - 若ssh失败，请稍等片刻再测试，因为dnsmasq的dns服务器启动需要时间。
 - 测试成功后，就可以开启Hadoop集群了！其实你也可以不进行测试，开启容器后耐心等待一分钟即可！
 
-###6. 开启hadoop
+#### **6. 开启hadoop**
 
 ```sh
 ./start-hadoop.sh
@@ -336,7 +336,7 @@ Connection to slave2.kiwenlau.com closed.
 - 运行结果太多，忽略....
 - hadoop的启动速度取决于机器性能....
 
-###7. 运行wordcount
+#### **7. 运行wordcount**
 
 ```sh
 ./run-wordcount.sh
@@ -356,14 +356,14 @@ Hello	2
 
 - wordcount的执行速度取决于机器性能....
 
-##四. N节点Hadoop集群搭建步骤
+## 四. N节点Hadoop集群搭建步骤
 
-###1. 准备工作
+#### **1. 准备工作**
 
 - 参考第二部分1~3：下载镜像，修改tag，下载源代码
 - 注意，你可以不下载serf-dnsmasq, 但是请最好下载hadoop-base，因为hadoop-master是基于hadoop-base构建的
 
-###2. 重新构建hadoop-master镜像
+#### **2. 重新构建hadoop-master镜像**
 
 ```sh
 ./resize-cluster.sh 5
@@ -372,7 +372,7 @@ Hello	2
 - 不要担心，1分钟就能搞定
 - 你可以为resize-cluster.sh脚本设不同的正整数作为参数数1, 2, 3, 4, 5, 6...
 
-###3. 启动容器
+#### **3. 启动容器**
 
 ```sh
 ./start-container.sh 5
@@ -383,7 +383,7 @@ Hello	2
 - 这个参数如果比上一步的参数大，你多启动的节点，Hadoop不认识它们..
 - 这个参数如果比上一步的参数小，Hadoop觉得少启动的节点挂掉了..
 
-###4. 测试工作
+#### **4. 测试工作**
 
 - 参考第三部分5~7：测试容器，开启Hadoop，运行wordcount
 - 请注意，若节点增加，请务必先测试容器，然后再开启Hadoop, 因为serf可能还没有发现所有节点，而dnsmasq的DNS服务器表示还没有配置好服务

@@ -20,9 +20,9 @@ tags: [Docker, Hadoop]
 
 在前一篇博客中，我介绍了[64位Ubuntu中编译Hadoop的步骤](http://kiwenlau.com/2016/05/29/160529-compile-hadoop-ubuntu/)。这篇博客将介绍基于Docker编译Hadoop的方法。
 
-###一. 编译步骤
+## 一. 编译步骤
 
-**1. 下载Docker镜像**
+#### **1. 下载Docker镜像**
 
 ```
 sudo docker pull kiwenlau/compile-hadoop
@@ -35,7 +35,7 @@ sudo docker build -t kiwenlau/compile-hadoop .
 ```
 
 
-**2. 下载并解压[Hadoop源文件](http://archive.apache.org/dist/hadoop/core/)**
+#### **2. 下载并解压[Hadoop源文件](http://archive.apache.org/dist/hadoop/core/)**
 
 ```
 export VERSION=2.7.2
@@ -43,7 +43,7 @@ wget http://archive.apache.org/dist/hadoop/core/hadoop-$VERSION/hadoop-$VERSION-
 tar -xzvf hadoop-$VERSION-src.tar.gz
 ```
 
-**3. 运行Docker容器，在容器中编译Hadoop**
+#### **3. 运行Docker容器，在容器中编译Hadoop**
 
 ```
 sudo docker run -v $(pwd)/hadoop-$VERSION-src:/hadoop-$VERSION-src kiwenlau/compile-hadoop /root/compile.sh $VERSION
@@ -79,19 +79,19 @@ hadoop-2.7.2-src/hadoop-dist/target/hadoop-2.7.2.tar.gz
 wget https://github.com/kiwenlau/compile-hadoop/releases/download/$VERSION/hadoop-VERSION.tar.gz
 ```
 
-###二. 方法总结
+## 二. 方法总结
 
 编译其他软件时，也可以参考本文介绍的方法，具体细节可以参考源码[kiwenlau/compile-hadoop](https://github.com/kiwenlau/compile-hadoop)
 
-**1. 构建编译所需的Docker镜像**
+#### **1. 构建编译所需的Docker镜像**
 
 编译软件往往需要安装很多依赖，而编译不同的软件有时需要不同版本的依赖，如果直接在主机上安装这些依赖会污染主机，而且也不易重复。
 
-**2. 下载软件源码**
+#### **2. 下载软件源码**
 
 源码不放在Docker镜像里面，可以方便编译不同版本的软件，也可以提高构建Docker镜像的效率。
 
-**3. 运行Docker容器编译软件**
+#### **3. 运行Docker容器编译软件**
 
 软件源码以数据卷(volume)的形式挂载的容器内，编译所得的可执行文件也将位于数据卷内。
 

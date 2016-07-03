@@ -25,21 +25,21 @@ WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platfo
 
 这时需要自行编译Hadoop源码。以下为编译步骤:
 
-**1. 安装依赖软件**
+#### **1. 安装依赖软件**
 
 ```
 sudo apt-get update
 sudo apt-get install -y openjdk-7-jdk libprotobuf-dev protobuf-compiler maven cmake build-essential pkg-config libssl-dev zlib1g-dev llvm-gcc automake autoconf make
 ```
 
-**2. 下载并解压[Hadoop源文件](http://archive.apache.org/dist/hadoop/core/)**
+#### **2. 下载并解压[Hadoop源文件](http://archive.apache.org/dist/hadoop/core/)**
 
 ```
 wget http://archive.apache.org/dist/hadoop/core/hadoop-2.3.0/hadoop-2.3.0-src.tar.gz
 tar -xzvf hadoop-2.3.0-src.tar.gz
 ```
 
-**3. 编译Hadoop**
+#### **3. 编译Hadoop**
 
 ```
 cd hadoop-2.3.0-src

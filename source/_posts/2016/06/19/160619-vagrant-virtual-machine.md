@@ -17,13 +17,13 @@ tags: [Vagrant]
 
 <img src="160619-vagrant-virtual-machine/vagrant-vm.png" width = "300"/>
 
-##一. 快速入门
+## 一. 快速入门
 
-**1. 安装[VirtualBox](https://www.virtualbox.org/wiki/Downloads)**
+#### **1. 安装[VirtualBox](https://www.virtualbox.org/wiki/Downloads)**
 
-**2. 安装[Vagrant](https://www.vagrantup.com/downloads.html)**
+#### **2. 安装[Vagrant](https://www.vagrantup.com/downloads.html)**
 
-**3. 创建虚拟机**
+#### **3. 创建虚拟机**
 
 ```
 mkdir vagrant-ubuntu
@@ -58,9 +58,9 @@ Vagrant虚拟机的默认配置:
 默认配置并不一定满足开发需求，下一小节将介绍如何进行自定义配置。
 
 
-##二. 自定义配置
+## 二. 自定义配置
 
-**1. 修改Vagrantfile**
+#### **1. 修改Vagrantfile**
 
 ```
 vim Vagrantfile
@@ -113,7 +113,7 @@ Vagrant.configure(2) do |config|
 end
 ```
 
-**2. 在桌面上创建share目录**
+#### **2. 在桌面上创建share目录**
 
 主机上的share目录将与虚拟机内的/home/vagrant/share目录内容实时同步
 
@@ -121,14 +121,14 @@ end
 mkdir ~/Desktop/share
 ```
 
-**3. 创建虚拟机**
+#### **3. 创建虚拟机**
 
 ```
 vagrant destroy
 vagrant up --provider virtualbox
 ```
 
-**4. SSH免密码登陆**
+#### **4. SSH免密码登陆**
 
 使用**vagrant ssh**命令登陆虚拟机必须切换到Vagrantfile所在的目录，而直接使用虚拟机IP登陆虚拟机则更为方便:
 
@@ -153,7 +153,7 @@ vagrant ssh-config | grep Port
 
 此时SSH登陆虚拟机则不再需要输入密码。
 
-**5. 关于Provision**
+#### **5. 关于Provision**
 
 Vagrant中有下面一段内容：
 
@@ -182,7 +182,7 @@ vagrant up --provider virtualbox --provision
 
 其实，Vagrant支持创建[Docker Provision](https://www.vagrantup.com/docs/provisioning/docker.html)，可以用于创建Docker主机，功能很多，但是用起来不如使用Shell脚本灵活。
 
-##三. Vagrant与Docker比较
+## 三. Vagrant与Docker比较
 
 [Vagrant](https://www.vagrantup.com/)与[Docker](https://www.docker.com/)都可以用于快速创建开发环境，但是，Vagrant是用于创建虚拟机的，而Docker是用于创建容器的，所以两者的功能并不相同。实际工作中，我两个都用，Vagrant仅用于创建虚拟机作为容器运行环境，而Docker用于开发和运行实际应用。这样实现了开发环境两层隔离，MacBook不需要安装多余的软件，Vagrant所创建的虚拟机也仅需要安装Docker等少数软件，这样更加方便和安全。
 
